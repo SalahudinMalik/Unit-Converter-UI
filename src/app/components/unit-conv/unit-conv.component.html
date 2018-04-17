@@ -1,0 +1,22 @@
+<div class="animated fadeIn">
+  <div class="row center">
+    <div class="col-sm-12 col-md-12">
+      <div class="card">
+        <div class="card-header">
+          Unit Converter
+        </div>
+        <div class="card-body">
+          <div ngbDropdown class="d-inline-block col-sm-12">
+            <button class="btn btn-outline-primary" id="sortMenu" ngbDropdownToggle>{{selectedAgent}}</button>
+            <div id = "list" class="dropdown-menu scrollable-menu" aria-labelledby="sortMenu">
+              <button  class="dropdown-item" *ngFor="let data of ddData" (click)="ChangeAgent()">{{data}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--/.col-->
+   
+    
+   
+  </div><!--/.row-->
+</div>
