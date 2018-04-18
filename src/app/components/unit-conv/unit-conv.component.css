@@ -1,5 +1,16 @@
 .center {
     margin: auto;
-    width: 99%;
+    width:100%;
     padding: 1px;
 }
+
+.row{
+    margin: 5px;
+}
+.units{
+    margin: 0%;
+    min-width: 100px;
+    max-width: 600px;
+}
+
+

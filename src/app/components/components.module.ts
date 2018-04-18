@@ -17,8 +17,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 //import {NoopAnimationsModule} from '@angular/platform-browser/animations'
 import { CdkTableModule } from '@angular/cdk/table';
 import { NgProgressModule } from 'ngx-progressbar';
+import {MatListModule} from '@angular/material/list'
 import { UnitConvComponent } from './unit-conv/unit-conv.component';
-
 
 
 @NgModule({
@@ -32,6 +32,7 @@ import { UnitConvComponent } from './unit-conv/unit-conv.component';
     MatButtonModule,
     NgbModule,
     MatCheckboxModule,
+    MatListModule,
     //SelectionModel,
     //NoopAnimationsModule,
     MatTableModule,

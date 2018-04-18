@@ -1,17 +1,82 @@
 <div class="animated fadeIn">
   <div class="row center">
-    <div class="col-sm-12 col-md-12">
+    <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="card">
         <div class="card-header">
           Unit Converter
         </div>
         <div class="card-body">
-          <div ngbDropdown class="d-inline-block col-sm-12">
-            <button class="btn btn-outline-primary" id="sortMenu" ngbDropdownToggle>{{selectedAgent}}</button>
-            <div id = "list" class="dropdown-menu scrollable-menu" aria-labelledby="sortMenu">
-              <button  class="dropdown-item" *ngFor="let data of ddData" (click)="ChangeAgent()">{{data}}</button>
+          <div class="row">
+            <div ngbDropdown class="d-inline-block col-md-12 col-sm-12">
+              <button class="btn btn-outline-primary"  id="sortMenu" ngbDropdownToggle>{{selectedAgent}}</button>
+              <div id = "list" class="dropdown-menu scrollable-menu" aria-labelledby="sortMenu">
+                <button  class="dropdown-item" *ngFor="let data of ddData" (click)="ChangeAgent()">{{data}}</button>
+              </div>
             </div>
           </div>
+          <div class="row ">
+              <div class="form-group mr-10 col-md-12 col-sm-12 col-lg-6">
+                <!-- <label for="alterEgo" class="float-left">Convert Value</label> -->
+                <input type="number" class="form-control" id="value" placeholder="Convert Value">
+              </div>
+          </div>
+          <div class="units row">
+            
+            <div class='FUnit float-left col-md-12 col-sm-12 col-lg-6'>
+                <p class="m-0">From Unit</p>
+                <!-- <mat-selection-list class="border border-secondary p-1">
+                    <mat-list-option *ngFor="let unit of FrmUnit">
+                      {{unit}}
+                    </mat-list-option>
+                </mat-selection-list> -->
+                <!-- <mat-list>
+                    <mat-list-item  class="md-3-line" *ngFor="let unit of FrmUnit" ng-click="fnReviewEmployeeId($index)" ng-class="{selectedIndex: selectedIndex===$index}">
+                      <div class="md-list-item-text" layout="column">
+                          {{unit}}
+                        
+                      </div>
+                      <mat-divider></mat-divider>
+                    </mat-list-item>
+                  </mat-list> -->
+                <!-- <mat-list role="list" class="border border-secondary  p-1">
+                    
+                    <mat-list-item role="listitem">Item 1</mat-list-item>
+                    <mat-list-item role="listitem">Item 2</mat-list-item>
+                    <mat-list-item role="listitem">Item 3</mat-list-item>
+                </mat-list> -->
+                  <select class="idFrom col-md-12 col-sm-12"  #selectElem (change)="setNewUser(selectElem.value)" size="10">
+                      <option class="p-1 " *ngFor="let unit of FrmUnit" [value]="unit">
+                          {{unit}}
+                      </option>
+                      <mat-divider></mat-divider>
+                  </select>
+            </div>
+            <div class='TUnit float-right col-md-12 col-sm-12 col-lg-6'>
+                <p class="m-0">To Unit</p>
+                <!-- <mat-list role="list">
+                    <p class="text p-1">To Unit</p>
+                    <mat-list-item role="listitem">Item 1</mat-list-item>
+                    <mat-list-item role="listitem">Item 2</mat-list-item>
+                    <mat-list-item role="listitem">Item 3</mat-list-item>
+                  </mat-list> -->
+                  <select class="idTo col-md-12 col-sm-12" #selectElem (change)="setNewUser(selectElem.value)" size="10">
+                      <option class="p-1 " *ngFor="let unit of FrmUnit" [value]="unit">
+                          {{unit}}
+                      </option>
+                      <mat-divider></mat-divider>
+                  </select>
+             </div>
+          </div>
+          <div class="ResultValue row">
+              <div class="form-group pt-10 col">
+                <!-- <label for="alterEgo" class="float-left">Convert Value</label> -->
+                <input type="text" disabled='true' class="form-control" id="alterEgo" placeholder="Result Value">
+              </div>
+              <div class="col">
+                <button class="btn btn-primary">Save Result</button>
+              </div>
+            </div>
+           
         </div>
       </div>
     </div><!--/.col-->
