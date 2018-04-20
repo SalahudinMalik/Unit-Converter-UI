@@ -1,8 +1,8 @@
 export class Globals {
     //hostname: string = window.location.hostname;
-    hostname: string = "192.168.0.83";
+    hostname: string = "localhost";
     port: string = window.location.port;
-    weburl: string = 'http://' + this.hostname  + ':8080/SHMA/SHMA/';
+    weburl: string = 'http://' + this.hostname  + ':32591/api/';
     // weburl: string = 'http://' + this.hostname  + ':'+ this.port + '/OrderPro/OrderPro/';
   
     fn_parseFloatIgnoreCommas(varString:String) :any {

@@ -9,7 +9,6 @@ import 'rxjs/add/observable/throw';
 
 
 import {Plot} from './models/plot.model';
-import {Agent} from './models/agent.model';
 
 @Injectable()
 export class DataService {
@@ -26,7 +25,15 @@ export class DataService {
   //(res) => this.extractData(res)
  
 
-
+  getAllPQ():Observable<any>{
+    this.fullurl = this.global.weburl + 'UnitConv' ;
+    // this.fullurl = this.global.weburl + "auth/login";
+    
+      return  this.http.get(this.fullurl)
+        .map((res : Response) => res)
+        .catch(this.errorHandler);
+     
+  }
 
   getAllPlots():Observable<any>{
     this.fullurl = this.global.weburl + 'plotD/plots' ;
@@ -47,11 +54,24 @@ export class DataService {
      
     
   }
-  getAgentPlot(agentCode:string):Observable<any>{
+  getAllUnits(pqCode:any):Observable<any>{
     this.fullurl = '';
-    this.fullurl = this.global.weburl + 'plotD/agentPlots'+'/'+agentCode;
+    this.fullurl = this.global.weburl + 'UnitConv'+'/'+pqCode;
     
       return  this.http.get(this.fullurl)
+      .map((result: Response) => result)
+      .catch(this.errorHandler);
+     
+    
+    
+    
+  }
+  getConvResult(pqCode:any , fromUnit:string , fromVal:Number , toUnit:string):Observable<any>{
+    this.fullurl = '';
+    let data:any = JSON.stringify({pqCode , fromUnit , fromVal , toUnit});
+    this.fullurl = this.global.weburl + 'UnitR' ;
+    
+      return  this.http.post<any>(this.fullurl , data , this._options)
       .map((result: Response) => result)
       .catch(this.errorHandler);
      

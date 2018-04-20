@@ -15,7 +15,7 @@ export const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'components',
     pathMatch: 'full',
   },
   {
@@ -26,13 +26,14 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardModule'
-      },
-      {
         path: 'components',
         loadChildren: './components/components.module#ComponentsModule'
       }
+      // {
+      //   path: 'dashboard',
+      //   loadChildren: './dashboard/dashboard.module#DashboardModule'
+      // }
+      
     ]
   },
   {

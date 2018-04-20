@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // Modal Component
@@ -33,6 +33,7 @@ import { UnitConvComponent } from './unit-conv/unit-conv.component';
     NgbModule,
     MatCheckboxModule,
     MatListModule,
+    FormsModule,
     //SelectionModel,
     //NoopAnimationsModule,
     MatTableModule,

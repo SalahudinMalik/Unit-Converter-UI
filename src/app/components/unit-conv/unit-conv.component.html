@@ -8,16 +8,16 @@
         <div class="card-body">
           <div class="row">
             <div ngbDropdown class="d-inline-block col-md-12 col-sm-12">
-              <button class="btn btn-outline-primary"  id="sortMenu" ngbDropdownToggle>{{selectedAgent}}</button>
+              <button class="btn btn-outline-primary"  id="sortMenu" *ngIf="ddData" ngbDropdownToggle>{{selectedPQ}}</button>
               <div id = "list" class="dropdown-menu scrollable-menu" aria-labelledby="sortMenu">
-                <button  class="dropdown-item" *ngFor="let data of ddData" (click)="ChangeAgent()">{{data}}</button>
+                <button  class="dropdown-item" *ngFor="let data of ddData" (click)="ChangePQ(data)">{{data.pqData}}</button>
               </div>
             </div>
           </div>
           <div class="row ">
               <div class="form-group mr-10 col-md-12 col-sm-12 col-lg-6">
                 <!-- <label for="alterEgo" class="float-left">Convert Value</label> -->
-                <input type="number" class="form-control" id="value" placeholder="Convert Value">
+                <input type="number" class="form-control" [(ngModel)]="unitValue" (change)="UnitValChange(unitValue)" id="value" placeholder="Convert Value">
               </div>
           </div>
           <div class="units row">
@@ -44,7 +44,7 @@
                     <mat-list-item role="listitem">Item 2</mat-list-item>
                     <mat-list-item role="listitem">Item 3</mat-list-item>
                 </mat-list> -->
-                  <select class="idFrom col-md-12 col-sm-12"  #selectElem (change)="setNewUser(selectElem.value)" size="10">
+                  <select class="idFrom col-md-12 col-sm-12" *ngIf="FrmUnit" #selectElem (change)="getFromUnitChange(selectElem.value)" size="10">
                       <option class="p-1 " *ngFor="let unit of FrmUnit" [value]="unit">
                           {{unit}}
                       </option>
@@ -59,8 +59,8 @@
                     <mat-list-item role="listitem">Item 2</mat-list-item>
                     <mat-list-item role="listitem">Item 3</mat-list-item>
                   </mat-list> -->
-                  <select class="idTo col-md-12 col-sm-12" #selectElem (change)="setNewUser(selectElem.value)" size="10">
-                      <option class="p-1 " *ngFor="let unit of FrmUnit" [value]="unit">
+                  <select *ngIf="ToUnit" class="idTo col-md-12 col-sm-12" #selectElem (change)="getToUnitChange(selectElem.value)" size="10">
+                      <option class="p-1 " *ngFor="let unit of ToUnit" [value]="unit">
                           {{unit}}
                       </option>
                       <mat-divider></mat-divider>
@@ -70,7 +70,8 @@
           <div class="ResultValue row">
               <div class="form-group pt-10 col">
                 <!-- <label for="alterEgo" class="float-left">Convert Value</label> -->
-                <input type="text" disabled='true' class="form-control" id="alterEgo" placeholder="Result Value">
+                <input type="text" disabled='true' class="form-control" [(ngModel)]="resultValue" id="alterEgo" placeholder="Result Value"> 
+                
               </div>
               <div class="col">
                 <button class="btn btn-primary">Save Result</button>

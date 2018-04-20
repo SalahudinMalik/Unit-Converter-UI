@@ -18,7 +18,7 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'unit-convo',
+        path: '',
         component: UnitConvComponent,
         data: {
           title: 'Unit Converter'
