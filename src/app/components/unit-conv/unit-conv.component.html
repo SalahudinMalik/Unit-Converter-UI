@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="row ">
-              <div class="form-group mr-10 col-md-12 col-sm-12 col-lg-6">
+              <div class="form-group mr-10 col-md-12 col-sm-12 col-lg-9">
                 <!-- <label for="alterEgo" class="float-left">Convert Value</label> -->
                 <input type="number" class="form-control" [(ngModel)]="unitValue" (change)="UnitValChange(unitValue)" id="value" placeholder="Convert Value">
               </div>
@@ -69,12 +69,12 @@
              </div>
           </div>
           <div class="ResultValue row">
-              <div class="form-group pt-10 col">
+              <div class="form-group pt-10 col-md-12 col-sm-12 col-xs-12 col-lg-9">
                 <!-- <label for="alterEgo" class="float-left">Convert Value</label> -->
                 <input type="text" disabled='true' class="form-control" [(ngModel)]="resultValue" id="alterEgo" placeholder="Result Value"> 
                 
               </div>
-              <div class="col">
+              <div class="col-lg-3">
                 <button class="btn btn-primary" (click)="saveResult()">Save Result</button>
               </div>
             </div>
