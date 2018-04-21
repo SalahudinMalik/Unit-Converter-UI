@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import {MatListModule} from '@angular/material/list';
 import {DataService} from '../../data.service'
 import { PQ } from '../../models/pq.model';
+import * as FileSaver from 'file-saver';
+
 
 
 @Component({
@@ -13,7 +15,8 @@ import { PQ } from '../../models/pq.model';
   styleUrls: ['./unit-conv.component.css']
 })
 export class UnitConvComponent implements OnInit {
-
+  public fileText:any = "";
+  //fileName:any;
   ddData :PQ[] = [];
   FrmUnit:any = [];
   ToUnit:any =[];
@@ -34,10 +37,24 @@ export class UnitConvComponent implements OnInit {
         //console.log("data "+ data);
       });
   }
-  getValue(m:any){
-
+  fileUpload(event) {
+    let reader = new FileReader();
+    reader.readAsText(event.srcElement.files[0]);
+    let me = this;
+    reader.onload = function (readerEvt) {
+      me.fileText = reader.result;
+    }
   }
- 
+  saveResult(){
+    if(this.fileText != undefined && this.resultValue != undefined){
+    this.fileText += this.unitValue + this.frmSelected + ' = ' + this.resultValue +this.toSelected+ '\n';
+    }
+  }
+ exportData(){
+  const blob = new Blob([this.fileText], {type: 'text'});
+  const filename = 'file.txt';
+  FileSaver.saveAs(blob, filename);
+ }
 getFromUnitChange(fromUnit: any): void {
   console.log(fromUnit);
   this.frmSelected = fromUnit;
