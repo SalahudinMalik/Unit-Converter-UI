@@ -31,7 +31,7 @@ export class FullLayoutComponent implements OnInit {
   ngOnInit(): void {}
 
   logout(){
-      this.authService.rmToken();
-      this.router.navigateByUrl("/pages");
+     // this.authService.rmToken();
+     // this.router.navigateByUrl("/pages");
   }
 }

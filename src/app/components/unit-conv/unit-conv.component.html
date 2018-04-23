@@ -18,7 +18,7 @@
           <div class="row ">
               <div class="form-group mr-10 col-md-12 col-sm-12 col-lg-9">
                 <!-- <label for="alterEgo" class="float-left">Convert Value</label> -->
-                <input type="number" class="form-control" [(ngModel)]="unitValue" (change)="UnitValChange(unitValue)" id="value" placeholder="Convert Value">
+                <input type="number" class="form-control" [(ngModel)]="unitValue" (input) = "perfromCal()" (change)="UnitValChange(unitValue)" id="value" placeholder="Convert Value">
               </div>
           </div>
 		  <!-- label to check github  -->
